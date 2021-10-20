@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profil{% endblock %}
+
+{% block body %}
+
+{% if app.user %}
+
+{% include("components/nav.html.twig") %}
+
+        <h1 class="text-center">Bienvenue dans votre espace personel {{ app.user.firstName }} !</h1>
+
+        <h2>Vos articles:</h2>
+        <div class="exemple-wrapper">
+            <table class="table">                   
+                <tr>
+                    <th><strong>Titre de l'article</strong></th>
+                    <th><strong>Description:</strong></th>
+                    <th><strong>Ajouter de membre</strong></th>                        
+                    <th><strong>Modifier</strong></th>
+                    <th><strong>Supprimer</strong></th>
+                </tr>
+                {% for project in app.user.projects %}
+                    <tr>
+                        <td><a class="btn" href="{{ path('projectById', { id:project.id }) }}"></h2>{{ project.title }}</h2></a></td>
+                        <td>{{ project.description }}</td>
+                        <td><a class="btn btn-primary" href="{{ path('add_users', { id:project.id }) }}">Ajouter un membre</a></td>
+                        <td><a class="btn btn-success" href="{{ path('upd_project', { id:project.id }) }}">Modifier</a></td>
+                        <td><a class="btn btn-danger" href="{{ path('del_project', { id:project.id }) }}">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+          </div>
+
+        <div class="text-center">
+            <a class="btn btn-secondary" href="{{ path('add_project') }}">Ajouter un Article</a>
+        </div>
+{% endif %}
+
+{% endblock %}
+

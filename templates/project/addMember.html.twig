@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Ajout de nouveaux membres
+{% endblock %}
+
+{% block body %}
+{% if app.user %}
+
+{% include("components/nav.html.twig") %}
+
+<h1 class="text-center">Ajouter un membre à votre article</h1>
+<div class="container">
+<form action="{{ path('add_users_save', { id : project.id }) }}" method ="POST" data-controller="user-search" data-user-search-url-value="{{ path('search_users') }}">   
+    <input type="submit" value="Ajouter les membres sélectionnés" class="btn btn-success">
+    <input class="border-0 col p-1" name="search" value="" data-user-search-target="search" placeholder="Rechercher un membre" type="text" data-action="input->user-search#search">
+    <span class="col" data-user-search-target="liste"></span>
+    <div class="w-auto border p-1" data-user-search-target="result"></div>
+    <select multiple name="members[]" class="visually-hidden" data-user-search-target="select"></select>
+</form>
+</div>
+
+<div class="text-center">
+    <h2>Les membres de l'article:</h2>
+    {% if project.userId | length > 0 %}
+      <ul class="list-group">
+        {% for member in project.userId %}
+          <li class="list-group-item">{{ member.firstname }}
+            {{ member.lastname }}
+            {{ member.email }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Aucun membre</p>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

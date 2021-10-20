@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Ariticle{% endblock %}
+
+{% block body %}
+{% if app.user %}
+
+{% include("components/nav.html.twig") %}
+
+{% form_theme ProjectForm 'bootstrap_4_layout.html.twig' %}
+
+<div class="container">
+    <h1>Ajouter un Article</h1>
+{{ form_start(ProjectForm) }}
+        {{ form_row(ProjectForm.title) }}
+        {{ form_row(ProjectForm.description) }}
+        {{ form_row(ProjectForm.image) }}
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    {{ form_end(ProjectForm) }}
+</div>
+{% endif %}
+{% endblock %}

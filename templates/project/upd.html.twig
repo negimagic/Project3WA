@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un Article{% endblock %}
+
+{% block body %}
+{% if app.user %}
+
+{% include("components/nav.html.twig") %}
+
+{% form_theme UpdateForm 'bootstrap_4_layout.html.twig' %}
+
+<div class="container">
+<h1>Modifier un Article</h1>
+
+{{ form_start(UpdateForm) }}
+        {{ form_row(UpdateForm.title) }}
+        {{ form_row(UpdateForm.description) }}
+        <button type="submit" class="btn btn-success">Modifier</button>
+    {{ form_end(UpdateForm) }}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+<div class="list-group">
+    {% for user in users %}
+      <a class="list-group-item list-group-item-action" href="#" data-action="click->user-search#select" data-id="{{ user.id }}" data-name="{{ user.firstname }} {{ user.lastname }}">
+        {{ user.firstname }}
+        {{ user.lastname }}
+      </a>
+    {% else %}
+      <div class="list-group-item">No result found...</div>
+    {% endfor %}
+</div>

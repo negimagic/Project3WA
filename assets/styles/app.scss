@@ -1,0 +1,27 @@
+// customize some Bootstrap variables
+$primary: darken(#428bca, 20%);
+$success: #053803;
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+.card-global-link {
+    color:black;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.card-content {
+    display:flex;
+    
+    img{
+        max-width: 200px;
+        max-height: 200px;
+    }
+    
+}
+
+.card-article {
+    max-width: 100%;
+    height:auto;
+}

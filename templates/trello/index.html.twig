@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projet 3WA: Blog Interactif{% endblock %}
+
+{% block body %}
+
+{% include("components/nav.html.twig") %}
+
+    <div class="example-wrapper">
+        
+        <h1 class="text-center">Projet 3WA: Blog Interactif</h1>
+        <div class="container">
+            <h2 class=>Tous les Articles:</h2>
+          {% for project in projects %}
+                    <div class="row">
+                    <div class="card col-sm-12">
+                        <a class="card-global-link" href="{{ path('projectById', { id:project.id }) }}">
+                          <div class="card-content">
+                            <img class="card-img-top" src="{{ asset('uploads/brochures/' ~ project.image) }}" alt="Image de l'article">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ project.title }}</h5>
+                              <p class="card-text">{{ project.description }}</p>
+                          </div>
+                        </div></a>
+                      </div>
+                    </div>
+          {% endfor %}
+        </div>
+
+                    {{ knp_pagination_render(projects) }}
+
+    </div>
+{% endblock %}
