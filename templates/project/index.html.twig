@@ -7,9 +7,8 @@
 
 <h1 class="text-center">{{ project.title }}</h1>
   <div class="container">
+    <img class="card-article" src="{{ asset('uploads/brochures/' ~ project.image) }}" alt="Image de l'article">
     <ul class="list-group list-group-flush">
-
-      <li><img class="card-article" src="{{ asset('uploads/brochures/' ~ project.image) }}" alt="Image de l'article"></li>
       <li class="list-group-item">Description de l'article :
         <br>{{ project.description }}</li>
     </ul>
