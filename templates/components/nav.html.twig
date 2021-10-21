@@ -44,11 +44,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
               {% if app.user %}
-               <li><a class="nav-link" href="{{ path('home') }}">Page d'acceuil</a></li>
+               <li><a class="nav-link" href="{{ path('home') }}">Page d'accueil</a></li>
                <li><a class="nav-link" href="{{ path('user') }}">Mon Profil</a></li>
                <li><a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a></li>
               {% else %}
-               <li><a class="nav-link" href="{{ path('home') }}">Page d'acceuil</a></li>
+               <li><a class="nav-link" href="{{ path('home') }}">Page d'accueil</a></li>
                <li><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
                <li><a class="nav-link" href="{{ path('app_register') }}">Créer un compte</a></li>  
               {% endif %}
